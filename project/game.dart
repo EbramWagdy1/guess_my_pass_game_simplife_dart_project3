@@ -1,21 +1,24 @@
-import 'dart:math';
+import 'dart:io';
 import 'fun.dart';
-
 void main() {
   printGameBanner();
-
-  List<int> number = [];
-
-  for(int i=0; i<6 ; i++){
+  List<int> numbers = generatePassword();
+  print("I Made A 6-Digit Password from 0 to 120 Try To Guess Them one by one:");
+  for(int i =0 ; i<numbers.length;i++){
     int start= i*20;
     int end=start+20;
-    int value = Random().nextInt(end-start)+start;
-    number.add(value);
+    int target=numbers[i];
+    print("Guess Number${i+1} In Range {$start-$end}");
+    while(true){
+      print("Enter your Guess :");
+      String guess=stdin.readLineSync()!;
+      handleGuess( guess, target,  numbers);
+      if (int.tryParse(guess) == target) {
+        break;
+      }
+    }
   }
-
-  print(number);
-
-
+  print("\n👏 You guessed ALL numbers! {$numbers}");
 }
 
 
