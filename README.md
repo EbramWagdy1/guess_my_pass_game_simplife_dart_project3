@@ -52,8 +52,8 @@ dart run game.dart
 2. You’ll be asked to guess each number in order.
 3. After every guess, you’ll get hints:
    - 🔥 **Very close!** → your guess is nearly correct.  
-   - 🙂 **Close.** → not too far.  
-   - ❄️ **Far.** → way off.  
+   - 👀 **Close.** → not too far.  
+   - 🚀 **Far.** → way off.  
 4. Once you guess correctly, the game moves to the next number.
 
 ---
@@ -78,10 +78,10 @@ I Made A 6-Digit Password from 0 to 120 Try To Guess Them one by one:
 Guess Number1 In Range {0-20}
 Enter your Guess :
 10
-❄️ Far inside the range. Try ⬇️ lower.
+🚀 Far inside the range. Try ⬇️ lower.
 Enter your Guess :
 5
-🙂 Close. Try ⬇️ lower.
+👀 Close. Try ⬇️ lower.
 Enter your Guess :
 3
 🔥 Very close! Try ⬇️ lower.
@@ -94,7 +94,7 @@ rrrr
 ❌ Please enter a valid number.
 Enter your Guess :
 25
-🙂 Close. Try ⬆️ higher.
+👀 Close. Try ⬆️ higher.
 Enter your Guess :
 30
 🎉 Correct! You found 30.
