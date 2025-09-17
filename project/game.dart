@@ -1,14 +1,23 @@
 import 'dart:io';
 import 'fun.dart';
 void main() {
+  //print Banner
   printGameBanner();
+
+  //create list of int to through all number
   List<int> numbers = generatePassword();
+
+
   print("I Made A 6-Digit Password from 0 to 120 Try To Guess Them one by one:");
+
+  //for loop to move next number if guess == true
   for(int i =0 ; i<numbers.length;i++){
     int start= i*20;
     int end=start+20;
     int target=numbers[i];
     print("Guess Number${i+1} In Range {$start-$end}");
+
+    //for infinite loop if guess!=target
     while(true){
       print("Enter your Guess :");
       String guess=stdin.readLineSync()!;

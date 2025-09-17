@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+/// create a Banner function
 void printGameBanner(){
   print(r"""
    ________  __________________    __  _____  __   ____  ___   __________    _________    __  _________
@@ -11,6 +12,9 @@ void printGameBanner(){
 """);
 }
 
+/// Generates a 6-digit password where each number is chosen randomly
+/// from a distinct range of size 20 (0–19, 20–39, ..., 100–119).
+/// Returns: A List<int> containing 6 random numbers, one from each range.
 List<int> generatePassword() {
   List<int> numbers = [];
   for (int i = 0; i < 6; i++) {
@@ -22,7 +26,17 @@ List<int> generatePassword() {
   return numbers;
 }
 
-
+/// Handles a  guess number from user user.
+/// Parameters:
+///   - guess: input from user (string)
+///   - target: the number that the user is try to guess
+///   - numbers: the full list of number generate by (generatePassword)
+///
+/// How it works:
+///   - if the user types "exit" → ends the game
+///   - if the input is not a number → shows (❌ Please enter a valid number)
+///   - if the guess == the target → (🎉 Correct! You found $target).
+///   - else → calls check() to give hints (Very close!/close/far).
 
 void handleGuess(String guess, int target, List<int> numbers){
   int? number=int.tryParse(guess);
@@ -44,6 +58,23 @@ void handleGuess(String guess, int target, List<int> numbers){
   }
 }
 
+/// Compares the user's guess with the target number and give a hint
+///
+/// Parameters:
+///   - number: from user
+///   - target: from list
+///
+/// How it works:
+///   - Calculates the distance between guess and target by  (dis =(number - target).abs()).
+///   - Determines the direction:
+///        if guess is smaller needs ⬆️ higher
+///        if guess is larger needs ⬇️ lower
+///   - Print a hint depending on :
+///       ≤ 2   → Very close  if the guess is 2 numbers away or less from the target
+///       ≤ 6   → Close       if the guess is 6 numbers away or less from the target
+///       > 6   → Far         if the guess is more than 6 numbers away from the target
+///
+/// Return: The distance (dis) between guess and target.
 
 
 int check(int number,int target){
